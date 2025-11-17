@@ -1,0 +1,221 @@
+<section
+  class="h-fit min-h-dvh w-full relative pb-20 flex flex-col items-center justify-center overflow-hidden gap-10 text-center"
+>
+  <img src="/logos/6.1.webp" alt="logo empresa" class="size-20 object-cover select-none z-0" />
+  <p class="text-2xl font-thin text-custom-brown-900">
+    CREEMOS QUE CADA ESPACIO TIENE EL POTENCIAL DE <br />CONVERTIRSE EN UNA EXTENSIÓN AUTÉNTICA DE
+    QUIÉNES LO HABITAN
+  </p>
+  <span>© 2025</span>
+
+  <img src="/icons/down.svg" alt="Down arrow" class="size-10 cursor-pointer bottom-5 absolute" />
+</section>
+
+<section
+  class="h-fit min-h-[600px] w-full relative pb-20 flex flex-col md:flex-row items-center justify-center overflow-hidden gap-10 text-center"
+>
+  <aside
+    class="w-full md:w-1/2 h-fit flex flex-col justify-center items-center gap-5 text-left text-custom-brown-900 text-xl uppercase px-5"
+  >
+    <p class="max-w-[700px]">
+      Diseñamos con intención, técnica y sensibilidad, combinando líneas puras, materiales nobles y
+      una visión estética que trasciende tendencias.
+    </p>
+    <p class="max-w-[700px]">
+      Nuestro enfoque parte de entender profundamente a cada cliente para crear proyectos que no
+      solo se ven bien, sino que funcionan, se sienten y perduran.
+    </p>
+    <p class="max-w-[700px]">
+      Detrás de cada trazo hay un equipo altamente preparado, con una trayectoria sólida y una
+      obsesión compartida: entregar espacios que cuenten una historia única, con carácter y armonía
+      en cada detalle.
+    </p>
+  </aside>
+  <div class="w-full md:w-1/2 h-fit flex items-center justify-center px-4">
+    <img src="/backgrounds/6.webp" alt="Imagen sillas" class="size-full max-w-96 object-contain" />
+  </div>
+</section>
+<section
+  class="bg-secondary-700 h-fit min-h-dvh relative flex flex-col lg:flex-row items-center justify-center"
+>
+  <img
+    src="/backgrounds/6.webp"
+    alt="imagen de diseño 360"
+    class="absolute top-1/2 -translate-y-1/2 brightness-0 size-full object-cover opacity-20"
+  />
+  <aside
+    class="w-full lg:w-1/2 h-fit flex flex-col justify-center items-center gap-5 text-left text-primary-500 text-xl uppercase px-5"
+  >
+    <h2 class="text-6xl md:text-8xl">
+      NUESTRO <br />
+      EQUIPO
+    </h2>
+  </aside>
+  <div
+    class="mt-20 lg:mt-0 w-full lg:w-1/2 h-fit flex flex-col items-center justify-center text-primary-500 text-3xl px-10 leading-6 gap-5 word-break"
+  >
+    <div
+      class="border-2 border-primary-500 flex items-center justify-between w-full p-10 rounded-sm cursor-pointer z-60"
+      (click)="setCardToShow(1, $event)"
+    >
+      <h2>
+        MARIA ALEJANDRA <br />
+        RODRIGUEZ MOLINARES
+      </h2>
+      <img src="/icons/down.svg" alt="Down arrow" class="size-10 brightness-0 invert rotate-90" />
+    </div>
+    <div
+      class="border-2 border-primary-500 flex items-center justify-between w-full p-10 rounded-sm cursor-pointer z-60"
+      (click)="setCardToShow(2, $event)"
+    >
+      <h2>
+        NELSON F. <br />
+        ANNICHIARICO M.
+      </h2>
+      <img src="/icons/down.svg" alt="Down arrow" class="size-10 brightness-0 invert rotate-90" />
+    </div>
+    <div
+      class="border-2 border-primary-500 flex items-center justify-between w-full p-10 rounded-sm cursor-pointer z-60"
+      (click)="setCardToShow(3, $event)"
+    >
+      <h2>
+        ILVA MONARES <br />
+        AMAYA
+      </h2>
+      <img src="/icons/down.svg" alt="Down arrow" class="size-10 brightness-0 invert rotate-90" />
+    </div>
+  </div>
+</section>
+
+<div
+  class="fixed inset-0 z-60"
+  [ngClass]="{
+    hidden: cardToShow() === 0,
+    block: cardToShow() !== 0
+  }"
+>
+  <div
+    class="h-screen w-screen backdrop-blur-sm duration-300 flex items-center justify-center"
+    (click)="setCardToShow(0, $event)"
+  >
+    <div
+      class="bg-primary-500 max-w-[1200px] max-h-[900px] w-[90%] h-[90%] flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden text-custom-brown-900 uppercase cursor-pointer px-5"
+      (click)="$event.stopPropagation()"
+      [ngClass]="{
+        hidden: cardToShow() !== 1,
+        block: cardToShow() === 1
+      }"
+    >
+      <span class="absolute top-5 right-5 cursor-pointer text-4xl z-70" (click)="closeModal()">
+        ×
+      </span>
+      <aside
+        class="w-full md:w-2/3 h-full flex flex-col justify-around lg:px-20 p-4 pt-0 overflow-auto"
+      >
+        <h2 class="text-4xl uppercase text-secondary-700">
+          MARÍA ALEJANDRA <br />RODRIGUEZ MOLINARES
+        </h2>
+        <div class="flex flex-col gap-2">
+          <p class="text-lg max-w-[700px]">arquitecta</p>
+          <p class="text-lg max-w-[700px]">especialista en diseño de interiores</p>
+          <p class="text-lg max-w-[700px]">fundadora y directora creativa</p>
+        </div>
+
+        <p class="text-xl font-semibold max-w-[700px]">
+          Apasionada por crear espacios que conecten con la esencia de quienes los habitan, combina
+          su formación como arquitecta y su especialización en diseño de interiores con una
+          sensibilidad especial por los detalles, la atmósfera y la funcionalidad. Disfruta diseñar
+          mobiliario que aporte equilibrio y cuente historias dentro de cada proyecto, y lidera la
+          dirección creativa para garantizar coherencia estética, calidez y un sello único en cada
+          propuesta.
+        </p>
+      </aside>
+
+      <div class="w-full md:w-1/3 h-40 md:h-full">
+        <img
+          src="/backgrounds/photo1.webp"
+          alt="Foto MARIA ALEJANDRA"
+          class="size-full object-cover border-r-20 border-primary-500"
+        />
+      </div>
+    </div>
+    <div
+      class="bg-primary-500 max-w-[1200px] max-h-[900px] w-[90%] h-[90%] flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden text-custom-brown-900 uppercase cursor-pointer px-5"
+      (click)="$event.stopPropagation()"
+      [ngClass]="{
+        hidden: cardToShow() !== 2,
+        block: cardToShow() === 2
+      }"
+    >
+      <span class="absolute top-5 right-5 cursor-pointer text-4xl z-70" (click)="closeModal()">
+        ×
+      </span>
+      <aside
+        class="w-full md:w-2/3 h-full flex flex-col justify-around lg:px-20 p-4 pt-0 overflow-auto"
+      >
+        <h2 class="text-4xl uppercase text-secondary-700">NELSON F. <br />ANNICHIARICO M.</h2>
+        <div class="flex flex-col gap-2">
+          <p class="text-lg max-w-[700px]">arquitecto</p>
+          <p class="text-lg max-w-[700px]">fundador y</p>
+          <p class="text-lg max-w-[700px]">director de producción</p>
+        </div>
+
+        <p class="text-xl font-semibold max-w-[700px]">
+          Apasionada por crear espacios que conecten con la esencia de quienes los habitan, combina
+          su formación como arquitecta y su especialización en diseño de interiores con una
+          sensibilidad especial por los detalles, la atmósfera y la funcionalidad. Disfruta diseñar
+          mobiliario que aporte equilibrio y cuente historias dentro de cada proyecto, y lidera la
+          dirección creativa para garantizar coherencia estética, calidez y un sello único en cada
+          propuesta.
+        </p>
+      </aside>
+
+      <div class="w-full md:w-1/3 h-40 md:h-full">
+        <img
+          src="/backgrounds/photo1.webp"
+          alt="Foto MARIA ALEJANDRA"
+          class="size-full object-cover border-r-20 border-primary-500"
+        />
+      </div>
+    </div>
+    <div
+      class="bg-primary-500 max-w-[1200px] max-h-[900px] w-[90%] h-[90%] flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden text-custom-brown-900 uppercase cursor-pointer px-5"
+      (click)="$event.stopPropagation()"
+      [ngClass]="{
+        hidden: cardToShow() !== 3,
+        block: cardToShow() === 3
+      }"
+    >
+      <span class="absolute top-5 right-5 cursor-pointer text-4xl z-70" (click)="closeModal()">
+        ×
+      </span>
+      <aside
+        class="w-full md:w-2/3 h-full flex flex-col justify-around lg:px-20 p-4 pt-0 overflow-auto"
+      >
+        <h2 class="text-4xl uppercase text-secondary-700">ILVA MONARES AMAYA</h2>
+        <div class="flex flex-col gap-2">
+          <p class="text-lg max-w-[700px]">arquitecta</p>
+          <p class="text-lg max-w-[700px]">especialista en diseño de interiores</p>
+          <p class="text-lg max-w-[700px]">fundadora y ceo</p>
+        </div>
+
+        <p class="text-xl font-semibold max-w-[700px]">
+          Apasionada por crear espacios que conecten con la esencia de quienes los habitan, combina
+          su formación como arquitecta y su especialización en diseño de interiores con una
+          sensibilidad especial por los detalles, la atmósfera y la funcionalidad. Disfruta diseñar
+          mobiliario que aporte equilibrio y cuente historias dentro de cada proyecto, y lidera la
+          dirección creativa para garantizar coherencia estética, calidez y un sello único en cada
+          propuesta.
+        </p>
+      </aside>
+
+      <div class="w-full md:w-1/3 h-40 md:h-full">
+        <img
+          src="/backgrounds/photo1.webp"
+          alt="Foto MARIA ALEJANDRA"
+          class="size-full object-cover border-r-20 border-primary-500"
+        />
+      </div>
+    </div>
+  </div>
+</div>

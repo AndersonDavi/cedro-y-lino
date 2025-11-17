@@ -1,0 +1,9 @@
+@import '../../../styles.css';
+@import 'tailwindcss';
+input,
+textarea {
+  @apply p-2 border-b-2 border-custom-brown-900 uppercase;
+}
+textarea {
+  @apply max-h-[200px];
+}

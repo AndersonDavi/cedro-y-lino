@@ -1,0 +1,28 @@
+<section class="h-dvh w-full relative overflow-hidden">
+  <div class="absolute z-20 inset-0 flex flex-col items-center justify-center">
+    <h1 class="text-6xl text-white uppercase text-center">
+      Transformando Espacios <br />
+      en Experiencias & Habitables
+    </h1>
+    <button
+      class="bg-primary-500 text-custom-brown-900 uppercase font-bold px-4 py-2 rounded-lg mt-10"
+    >
+      Ver Proyectos
+    </button>
+  </div>
+
+  <div class="bg-custom-brown-500 size-full absolute mix-blend-multiply z-10"></div>
+
+  <!-- Carrusel -->
+  <div class="relative w-full h-full">
+    @for (img of images; track $index) {
+    <div
+      class="absolute inset-0 w-full h-full transition-opacity duration-700"
+      [class.opacity-0]="currentIndex() !== $index"
+      [class.opacity-100]="currentIndex() === $index"
+    >
+      <img [src]="img" class="w-full h-full object-cover" alt="slide" />
+    </div>
+    }
+  </div>
+</section>
