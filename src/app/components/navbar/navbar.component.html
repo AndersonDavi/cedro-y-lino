@@ -7,13 +7,29 @@
   }"
 >
   <div class="h-15 w-fit p-2">
-    <img src="logos/2.1.webp" i18n-alt alt="navbar logo" class="h-full w-auto max-w-[200px] object-contain ml-20" routerLink="inicio" />
+    @if (navbarStyle() === 'text-white') {
+    <img
+      src="logos/2.2.webp"
+      i18n-alt
+      alt="navbar logo"
+      class="h-full w-auto max-w-[200px] object-contain ml-20"
+      routerLink="inicio"
+    />
+    } @else {
+    <img
+      src="logos/2.1.webp"
+      i18n-alt
+      alt="navbar logo"
+      class="h-full w-auto max-w-[200px] object-contain ml-20"
+      routerLink="inicio"
+    />
+    }
   </div>
   <ul
     class="flex md:items-center uppercase font-semibold tracking-[2px]"
     [class.hidden]="!isMenuOpen()"
     [ngClass]="{
-      'w-full flex-col absolute top-[150px] left-0 h-[calc(100dvh-150px)] bg-primary-500 z-50':
+      'w-full flex-col absolute top-[80px] left-0 h-[calc(100dvh-145px)] bg-primary-500 z-50':
         mobileView(),
       'flex-row h-full': !mobileView()
     }"
