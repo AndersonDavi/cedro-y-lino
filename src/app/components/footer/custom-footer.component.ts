@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FooterService } from '../../services/footer.service';
 
 @Component({
   selector: 'custom-footer',
@@ -13,6 +14,8 @@ import { RouterModule } from '@angular/router';
 })
 
 export class CustomFooterComponent {
+  public footerService = inject(FooterService);
+  public footerStyle = computed(() => this.footerService.footerStyleToShow());
   lang: 'es' | 'en' = window.location.pathname.startsWith('/es') ? 'es' : 'en';
 
   getRoute(service: 'Accounting' | 'Payroll' | 'Taxes' | 'Other services') {

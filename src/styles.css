@@ -21,7 +21,7 @@
   --color-secondary-400: #98a860;
   --color-secondary-500: #849253;
   --color-secondary-600: #6e7a44;
-  --color-secondary-700: #5a6437;
+  --color-secondary-700: #546330;
   --color-secondary-800: #3c4323;
   --color-secondary-900: #212611;
   --color-secondary-950: #141708;
@@ -32,7 +32,7 @@
   --color-custom-blue-300: #75a3c3;
   --color-custom-blue-400: #5d839d;
   --color-custom-blue-500: #466478;
-  --color-custom-blue-600: #385161;
+  --color-custom-blue-600: #306379;
   --color-custom-blue-700: #2a3e4b;
   --color-custom-blue-800: #1b2a33;
   --color-custom-blue-900: #0f1920;
@@ -47,7 +47,7 @@
   --color-custom-brown-600: #9c6363;
   --color-custom-brown-700: #7f4f4f;
   --color-custom-brown-800: #623c3c;
-  --color-custom-brown-900: #482b2b;
+  --color-custom-brown-900: #411d1d;
   --color-custom-brown-950: #3c2323;
 
   --color-contrast-50: #ebebeb;
@@ -67,7 +67,7 @@
   font-family: 'Naftegfo';
   src: url('/fonts/Naftegfo.otf') format('opentype');
   font-display: swap;
-  font-weight: normal;
+  font-weight: thin;
   font-style: normal;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -75,5 +75,6 @@
 }
 
 * {
-  font-family: var(--font-technologies) !important;
+  font-family: var(--font-naftegfo) !important;
+  letter-spacing: 2px;
 }

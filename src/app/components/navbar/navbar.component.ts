@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostListener, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, HostListener, inject, input, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { DropdownComponent } from "../dropdown/dropdown.component";
 import { DropdownItem } from '../../interfaces/dropdown-item';
+import { NavbarService } from '../../services/navbar.service';
 
 @Component({
   selector: 'custom-navbar',
@@ -18,6 +19,12 @@ export class NavbarComponent {
   public mobileView = signal(false);
   public isLarge = signal(false);
   public isMenuOpen = signal(true);
+  private navbarService = inject(NavbarService);
+
+  public navbarStyle = computed(() => {
+    return this.navbarService.navbarStyleToShow();
+  });
+
   constructor(private router: Router) {
     this.onResize();
   }

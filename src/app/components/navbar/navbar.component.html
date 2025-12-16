@@ -1,31 +1,23 @@
 <nav
-  class="size-full flex justify-between items-center h-20 px-4 bg-primary-500 text-custom-brown-900 z-50 relative select-none"
+  class="size-full flex justify-between items-center h-20 px-4 text-custom-brown-900 z-50 relative select-none"
+  [ngClass]="{
+    'bg-primary-500': navbarStyle() === 'solid',
+    'bg-primary-500/80': navbarStyle() === 'transparent',
+    'text-white': navbarStyle() === 'text-white'
+  }"
 >
   <div class="h-15 w-fit p-2">
-    <img src="logos/2.1.webp" i18n-alt alt="navbar logo" class="h-full w-auto object-contain" routerLink="inicio" />
+    <img src="logos/2.1.webp" i18n-alt alt="navbar logo" class="h-full w-auto max-w-[200px] object-contain ml-20" routerLink="inicio" />
   </div>
   <ul
-    class="flex md:items-center uppercase font-semibold"
+    class="flex md:items-center uppercase font-semibold tracking-[2px]"
     [class.hidden]="!isMenuOpen()"
     [ngClass]="{
-      'w-full flex-col absolute top-[95px] left-0 h-[calc(100dvh-95px)] bg-primary-500 z-50':
+      'w-full flex-col absolute top-[150px] left-0 h-[calc(100dvh-150px)] bg-primary-500 z-50':
         mobileView(),
       'flex-row h-full': !mobileView()
     }"
   >
-    <li
-      class="navbar-item"
-      [ngClass]="{
-        'w-full': mobileView(),
-        'w-fit': !mobileView()
-      }"
-      routerLinkActive="active"
-      (click)="itemClick()"
-      routerLink="inicio"
-      i18n
-    >
-      Inicio
-    </li>
     <li
       class="navbar-item"
       [ngClass]="{
@@ -82,7 +74,11 @@
 
   @if (mobileView()) {
   <div
-    class="size-10 bg-primary-500 cursor-pointer hover:bg-primary-600 active:bg-primary-700 flex items-center justify-center"
+    class="size-10 cursor-pointer hover:bg-primary-600 active:bg-primary-700 flex items-center justify-center"
+    [ngClass]="{
+      'bg-primary-500': navbarStyle() === 'solid',
+      'bg-primary-500/80': navbarStyle() === 'transparent',
+    }"
     (click)="toggleMenu()"
   >
     <button

@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { NavbarService } from '../../services/navbar.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,6 +8,7 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal } from '@
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage implements OnInit, OnDestroy {
+  private navbarService = inject(NavbarService);
 
   images = [
     'backgrounds/mesa_de_trabajo_1.webp',
@@ -20,6 +22,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.intervalId = setInterval(() => {
       this.nextImage();
     }, 5000); // cambiar cada 3 segundos
+    this.navbarService.setNavbarStyleToShow('transparent');
   }
 
   ngOnDestroy(): void {
