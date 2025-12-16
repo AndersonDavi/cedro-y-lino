@@ -1,0 +1,1 @@
+import{L as e,ba as l}from"./chunk-4DDIQDQE.js";var r=class o{footerStyleToShow=l("full");setFooterStyleToShow(t){this.footerStyleToShow.set(t)}static \u0275fac=function(a){return new(a||o)};static \u0275prov=e({token:o,factory:o.\u0275fac,providedIn:"root"})};export{r as a};

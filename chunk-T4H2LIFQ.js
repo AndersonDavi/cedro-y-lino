@@ -1,0 +1,1 @@
+import{L as a,ba as o}from"./chunk-4DDIQDQE.js";var r=class t{navbarStyleToShow=o("transparent");setNavbarStyleToShow(e){this.navbarStyleToShow.set(e)}static \u0275fac=function(n){return new(n||t)};static \u0275prov=a({token:t,factory:t.\u0275fac,providedIn:"root"})};export{r as a};

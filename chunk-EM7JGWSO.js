@@ -1,0 +1,1 @@
+import{Ga as o,_a as s}from"./chunk-4DDIQDQE.js";var a=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-projects-page"]],decls:1,vars:0,consts:[[1,"h-dvh"]],template:function(e,n){e&1&&s(0,"section",0)},styles:["[_nghost-%COMP%]{display:block}"],changeDetection:0})};export{a as ProjectsPage};
