@@ -1,6 +1,6 @@
 <div class="relative">
   <section
-    class="h-fit min-h-[calc(100dvh-80px)] w-full relative flex flex-col justify-between overflow-hidden text-center "
+    class="h-fit min-h-[calc(100dvh-80px)] w-full relative flex flex-col justify-between overflow-hidden text-center"
     [ngClass]="{
       'hidden': cardToShow() !== 0,
     }"
@@ -74,79 +74,77 @@
     }"
   >
     <div
-      class="size-full bg-custom-brown-900 flex flex-col md:flex-row items-left justify-center gap-12 relative overflow-hidden text-primary-500 uppercase text-center cursor-pointer px-5"
+      class="size-full bg-custom-brown-900 flex flex-col md:flex-row items-left justify-center gap-12 relative overflow-hidden text-primary-500 uppercase text-center cursor-pointer px-5 min-h-[calc(100dvh-80px)]"
       (click)="$event.stopPropagation()"
       [ngClass]="{
         hidden: cardToShow() !== 1,
         block: cardToShow() === 1
       }"
     >
-      <span
-        class="absolute top-32 left-10 cursor-pointer text-[5rem] z-70 font-light"
-        (click)="closeModal()"
+      <div
+        class="md:w-1/2 w-full h-full flex flex-col items-left justify-center text-left gap-4 pl-10"
       >
-        ×
-      </span>
-      <div class="md:w-1/2 w-full h-full flex flex-col items-left justify-center text-left gap-7 pl-10">
-        <h2 class="text-6xl uppercase">Diseño 360</h2>
-        <p class="text-sm text-primary-500 brightness-90 max-w-[700px]">
+        <span
+          class="top-32 left-10 cursor-pointer text-[5rem] z-70 font-light"
+          (click)="closeModal()"
+        >
+          ×
+        </span>
+        <h2 class="text-4xl uppercase">Diseño 360</h2>
+        <p class="text-[10px] text-primary-500 brightness-90 max-w-[700px]">
           Creamos espacios integrales desde la idea hasta la ejecución, ofreciendo diseño interior
           completo, selección de materiales y mobiliario a medida. Interpretamos la esencia de cada
           cliente para lograr espacios funcionales, coherentes y con identidad.
         </p>
-        <p class="text-lg max-w-[700px]">
+        <p class="text-[12px] max-w-[700px]">
           RECONOCIMIENTO DEL ESPACIO | PROPUESTA VISUAL OPTIMIZACIÓN DEL DISTRIBUCIÓN | WORKSHOP
           CREATIVO PROPUESTA FINAL | PRESUPUESTO ESTIMADO
         </p>
         <button
-          class="bg-primary-500 px-4 py-2 rounded-md text-custom-brown-900 w-fit font-semibold"
+          class="bg-primary-500 px-4 py-2 text-custom-brown-900 w-fit font-semibold text-xs"
         >
           VER PROYECTOS
         </button>
       </div>
       <div class="w-1/2 flex items-center justify-center h-full">
-        <img
-          src=""
-          alt=""
-          class="h-[60%] w-[80%] object-cover border"
-        />
+        <img src="" alt="" class="h-[60%] w-[80%] object-cover border" />
       </div>
     </div>
     <div
-      class="size-full bg-custom-blue-600 flex items-left justify-center gap-12 relative overflow-hidden text-primary-500 uppercase text-center cursor-pointer px-5"
+      class="size-full bg-custom-blue-600 flex flex-col md:flex-row items-left justify-center gap-12 relative overflow-hidden text-primary-500 uppercase text-center cursor-pointer px-5 min-h-[calc(100dvh-80px)]"
       (click)="$event.stopPropagation()"
       [ngClass]="{
         hidden: cardToShow() !== 2,
         block: cardToShow() === 2
       }"
     >
-      <span
-        class="absolute top-32 left-10 cursor-pointer text-[5rem] z-70 font-light"
-        (click)="closeModal()"
-      >
-        ×
-      </span>
-      <div class="w-1/2 h-full flex flex-col items-left justify-center text-left gap-7 pl-10">
-        <h2 class="text-4xl uppercase">
+      <div class="md:w-1/2 w-full h-full flex flex-col items-left justify-center text-left gap-4 pl-10">
+        <span
+          class="top-32 left-10 cursor-pointer text-[5rem] z-70 font-light"
+          (click)="closeModal()"
+        >
+          ×
+        </span>
+        <h2 class="text-[2.2rem] uppercase leading-none">
           MOBILIARIO <br />
-          <span class="text-[2.7rem]">DE VIVIENDA</span>
+          <span class="text-[2.7rem] ">DE VIVIENDA</span>
         </h2>
-        <p class="text-sm text-primary-500 brightness-90 max-w-[700px]">
+        <p class="text-[12px] text-primary-500 brightness-90 max-w-[700px]">
           Desarrollamos mobiliario residencial a partir de nuestras propias colecciones, diseñadas
           con intención, estética y funcionalidad. Cada pieza puede adaptarse en medidas, acabados y
           detalles según el espacio o las necesidades del cliente.
         </p>
-        <p class="text-lg max-w-[700px]">
+        <p class="text-[14px] max-w-[700px]">
           ASESORÍA INICIAL | PROPUESTAS DE DISEÑO | SELECCIÓN DE MATERIALES | FABRICACIÓN EN TALLER
           | ENTREGA EN CASA
         </p>
         <button
-          class="bg-primary-500 px-4 py-2 rounded-md text-custom-brown-900 w-fit font-semibold"
+          class="bg-primary-500 px-4 py-2 text-custom-brown-900 w-fit font-semibold text-xs"
         >
           VER PROYECTOS
         </button>
       </div>
-      <div class="w-1/2 flex items-center justify-center h-full">
+      <div class="md:w-1/2 w-full flex items-center justify-center h-full">
         <img class="h-[60%] w-[80%] bg-gray-500 border" src="" alt="" />
       </div>
       <!-- <img
@@ -156,46 +154,42 @@
         /> -->
     </div>
     <div
-      class="size-full bg-secondary-700 flex items-left justify-center gap-12 relative overflow-hidden text-primary-500 uppercase text-center cursor-pointer px-5"
+      class="size-full w-full bg-secondary-700 flex flex-col md:flex-row items-left justify-center gap-4 relative overflow-hidden text-primary-500 uppercase text-center cursor-pointer px-5 min-h-[calc(100dvh-80px)]"
       (click)="$event.stopPropagation()"
       [ngClass]="{
         hidden: cardToShow() !== 3,
         block: cardToShow() === 3
       }"
     >
-      <span
-        class="absolute top-32 left-10 cursor-pointer text-[5rem] z-70 font-light"
-        (click)="closeModal()"
-      >
-        ×
-      </span>
-      <div class="w-1/2 h-full flex flex-col items-left justify-center text-left gap-7 pl-10">
-        <h2 class="text-4xl uppercase">
+      <div class="md:w-1/2 w-full h-full flex flex-col items-left justify-center text-left gap-4 pl-10">
+        <span
+          class="top-32 left-10 cursor-pointer text-[5rem] z-70 font-light"
+          (click)="closeModal()"
+        >
+          ×
+        </span>
+        <h2 class="text-[2.2rem] uppercase leading-none">
           CARPINTERÍA <br />
           <span class="text-[2.7rem]">ARQUITECTÓNICA</span>
         </h2>
-        <p class="text-sm text-primary-500 brightness-90 max-w-[700px]">
+        <p class="text-[12px] text-primary-500 brightness-90 max-w-[700px]">
           Diseñamos y fabricamos mobiliario fijo —cocinas, closets, muebles de baño y soluciones
           empotradas— adaptado a proyectos residenciales o comerciales. Trabajamos en conjunto con
           arquitectos, constructoras o directamente con el cliente para garantizar resultados
           funcionales y a medida.
         </p>
-        <p class="text-lg max-w-[700px]">
+        <p class="text-[14px] max-w-[700px]">
           LEVANTAMIENTO Y ASESORÍA | PROPUESTA TÉCNICA SELECCIÓN DE ACABADOS | FABRICACIÓN EN TALLER
           INSTALACIÓN EN OBRA
         </p>
         <button
-          class="bg-primary-500 px-4 py-2 rounded-md text-custom-brown-900 w-fit font-semibold"
+          class="bg-primary-500 px-4 py-2 text-custom-brown-900 w-fit font-semibold text-xs"
         >
           VER PROYECTOS
         </button>
       </div>
       <div class="w-1/2 flex items-center justify-center h-full">
-        <img
-          src=""
-          alt=""
-          class="h-[60%] w-[80%] object-cover border"
-        />
+        <img src="" alt="" class="h-[60%] w-[80%] object-cover border" />
       </div>
     </div>
   </div>

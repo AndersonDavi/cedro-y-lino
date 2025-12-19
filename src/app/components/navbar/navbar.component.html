@@ -1,5 +1,5 @@
 <nav
-  class="size-full flex justify-between items-center h-20 px-4 text-custom-brown-900 z-50 relative select-none"
+  class="size-full flex justify-between items-center h-14 px-4 text-custom-brown-900 z-50 relative select-none"
   [ngClass]="{
     'bg-primary-500': navbarStyle() === 'solid',
     'bg-primary-500/80': navbarStyle() === 'transparent',
@@ -7,29 +7,19 @@
   }"
 >
   <div class="h-15 w-fit p-2">
-    @if (navbarStyle() === 'text-white') {
     <img
-      src="logos/2.2.webp"
+      [src]="navbarStyle() === 'text-white' ? 'logos/2.2.webp' : 'logos/2.1.webp'"
       i18n-alt
       alt="navbar logo"
-      class="h-full w-auto max-w-[200px] object-contain ml-20"
+      class="h-full w-auto max-w-[170px] object-contain ml-20"
       routerLink="inicio"
     />
-    } @else {
-    <img
-      src="logos/2.1.webp"
-      i18n-alt
-      alt="navbar logo"
-      class="h-full w-auto max-w-[200px] object-contain ml-20"
-      routerLink="inicio"
-    />
-    }
   </div>
   <ul
-    class="flex md:items-center uppercase font-semibold tracking-[2px]"
+    class="flex md:items-center uppercase tracking-[2px] text-[12px]"
     [class.hidden]="!isMenuOpen()"
     [ngClass]="{
-      'w-full flex-col absolute top-[80px] left-0 h-[calc(100dvh-145px)] bg-primary-500 z-50':
+      'w-full flex-col absolute top-[60px] left-0 h-[calc(100dvh-80px)] bg-primary-500 z-50':
         mobileView(),
       'flex-row h-full': !mobileView()
     }"

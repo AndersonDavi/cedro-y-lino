@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   template: `
 
   <div class="flex flex-col min-h-screen bg-primary-500">
-    <custom-navbar class="fixed top-16 left-0 right-0 z-50"/>
+    <custom-navbar class="fixed top-10 left-0 right-0 z-50"/>
     <main class="overflow-x-clip">
       <router-outlet/>
     </main>

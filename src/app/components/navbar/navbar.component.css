@@ -2,42 +2,33 @@
 @import '../../../styles.css';
 
 .menu-toggle {
-  @apply bg-transparent cursor-pointer p-2 mx-2 relative z-[1001];
-}
-.bar {
-  @apply block w-6 h-[3px] my-[5px] mx-0 bg-custom-brown-900 transition-all duration-300;
+  @apply bg-transparent cursor-pointer p-2 mx-2 relative z-1001;
 }
 .menu-toggle[aria-expanded='true'] .bar:nth-child(1) {
   @apply transform rotate-45 translate-y-[8px];
 }
-
 .menu-toggle[aria-expanded='true'] .bar:nth-child(2) {
   @apply opacity-0;
 }
-
 .menu-toggle[aria-expanded='true'] .bar:nth-child(3) {
   @apply transform -rotate-45 -translate-y-[8px];
 }
-.navbar-item {
-  @apply p-4 px-16 h-full flex items-center justify-center select-none cursor-pointer transition-colors duration-150;
-  /* Default styles */
-  @apply hover:border-2 hover:border-custom-brown-900;
-  @apply active:bg-primary-800 active:text-white;
+.bar {
+  @apply block w-6 h-[3px] my-[5px] mx-0 bg-custom-brown-900 transition-all duration-300;
 }
-
+.navbar-item {
+  @apply p-2 px-10 h-full flex items-center justify-center select-none cursor-pointer transition-colors duration-150 hover:border-2 hover:border-custom-brown-900 active:bg-primary-800 active:text-white;
+}
 .navbar-dropdown {
   @apply h-full text-custom-brown-900 flex items-center justify-center select-none cursor-pointer;
 }
-
 .active {
   @apply bg-primary-800 text-white hover:bg-primary-900 select-none hover:text-white;
 }
-
 /* Styles for text-white state */
 .text-white .navbar-item {
   @apply hover:border-2 hover:border-white/50 active:bg-white/50;
 }
-
 .text-white .active {
   @apply bg-white/50 text-white hover:bg-white/60;
 }
