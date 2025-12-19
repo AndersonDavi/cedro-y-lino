@@ -1,5 +1,7 @@
 <!-- @if (footerStyle() === 'small') { -->
-<footer class="flex items-center min-h-20 justify-between text-custom-brown-900 bg-primary-500 px-10">
+<footer
+  class="flex items-center min-h-20 justify-between text-custom-brown-900 bg-primary-500 px-10"
+>
   <div class="h-full w-fit flex gap-10 items-center justify-center">
     <img
       src="logos/4.1.webp"
@@ -14,7 +16,8 @@
       src="logos/6.1.webp"
       i18n-alt
       alt="logo empresa"
-      class="size-12 object-contain brightness-75"
+      class="size-12 object-contain brightness-75 cursor-pointer hover:scale-95 active:scale-100 transition-all duration-100"
+      routerLink="/contacto"
     />
   </div>
 </footer>

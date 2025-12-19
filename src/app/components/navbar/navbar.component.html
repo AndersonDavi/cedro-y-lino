@@ -1,17 +1,18 @@
 <nav
-  class="size-full flex justify-between items-center h-14 px-4 text-custom-brown-900 z-50 relative select-none"
+  class="size-full flex justify-between items-center h-14 px-10 text-custom-brown-900 z-50 relative select-none"
   [ngClass]="{
     'bg-primary-500': navbarStyle() === 'solid',
     'bg-primary-500/80': navbarStyle() === 'transparent',
     'text-white': navbarStyle() === 'text-white'
   }"
 >
-  <div class="h-15 w-fit p-2">
+  <div class="h-15 w-fit p-2 flex justify-start">
     <img
       [src]="navbarStyle() === 'text-white' ? 'logos/2.2.webp' : 'logos/2.1.webp'"
       i18n-alt
       alt="navbar logo"
-      class="h-full w-auto max-w-[170px] object-contain ml-20"
+      class="h-full w-auto 
+      max-w-[170px] object-contain"
       routerLink="inicio"
     />
   </div>

@@ -4,30 +4,30 @@
   <img
     src="/backgrounds/1.webp"
     alt=""
-    class="w-full h-full object-cover scale-200 brightness-0 border absolute select-none z-0"
+    class="w-full h-full object-cover scale-200 brightness-0 border absolute select-none z-0 opacity-25"
   />
 
   <div class="flex md:flex-row flex-col z-10 items-center justify-center gap-32 mt-40 h-full">
-    <div class="md:w-1/2 w-full flex flex-col items-center justify-center text-left">
-      <h1 class="md:text-6xl text-4xl text-custom-brown-900 uppercase font-thin">
+    <div class="md:w-1/2 w-full flex flex-col items-center justify-center text-left md:pl-10">
+      <h1 class="md:text-6xl text-4xl text-custom-brown-900 uppercase font-thin relative -left-2">
         EMPECEMOS TU <br />NUEVO PROYECTO
       </h1>
-      <p class="md:text-lg text-center text-xs text-custom-brown-900 font-semibold">
+      <p class="md:text-lg text-center md:text-left text-xs text-custom-brown-900 font-semibold">
         CUÉNTANOS MÁS SOBRE TU PROYECTO Y CÓMO PODEMOS AYUDARTE.
       </p>
     </div>
-    <div class="md:w-1/2 w-full flex items-center justify-center">
+    <div class="md:w-1/2 w-full flex items-center justify-center md:justify-end md:pr-10">
       <form class="flex flex-col gap-4">
-        <h2 class="text-2xl text-custom-brown-900 uppercase font-thin mb-10">
-          INFORMACION DE CONTACTO
+        <h2 class="text-2xl text-custom-brown-900 uppercase font-thin mb-5">
+          Déjanos tus datos
         </h2>
-        <input type="text" placeholder="Nombre*" name="name" class="md:text-lg text-xs" />
+        <input type="text" placeholder="Nombre*" name="name" class="md:text-sm text-xs" />
         <div class="flex gap-2">
-          <input type="phone" placeholder="NÚMERO DE CONTACTO*" name="phone" class="md:text-lg text-xs" />
-          <input type="email" placeholder="CORREO ELECTRONICO*" name="email" class="md:text-lg text-xs" />
+          <input type="phone" placeholder="NÚMERO DE CONTACTO*" name="phone" class="md:text-sm text-xs" />
+          <input type="email" placeholder="CORREO ELECTRONICO*" name="email" class="md:text-sm text-xs" />
         </div>
-        <textarea placeholder="describe tu proyecto" name="message" class="md:text-lg text-xs"></textarea>
-        <button class="bg-custom-brown-900 text-primary-500 w-fit rounded-md p-4 py-1 mt-10 text-lg">
+        <textarea placeholder="describe tu proyecto" name="message" class="md:text-sm text-xs"></textarea>
+        <button class="bg-custom-brown-900 text-primary-500 w-fit p-4 py-1 mt-10 text-lg">
           ENVIAR
         </button>
       </form>

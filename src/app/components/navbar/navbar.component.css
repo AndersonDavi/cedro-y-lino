@@ -17,7 +17,7 @@
   @apply block w-6 h-[3px] my-[5px] mx-0 bg-custom-brown-900 transition-all duration-300;
 }
 .navbar-item {
-  @apply p-2 px-10 h-full flex items-center justify-center select-none cursor-pointer transition-colors duration-150 hover:border-2 hover:border-custom-brown-900 active:bg-primary-800 active:text-white;
+  @apply p-2 px-10 h-full flex items-center justify-center select-none cursor-pointer transition-all duration-200 hover:border-2 hover:border-primary-800 active:bg-primary-800 active:text-white;
 }
 .navbar-dropdown {
   @apply h-full text-custom-brown-900 flex items-center justify-center select-none cursor-pointer;
