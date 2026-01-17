@@ -1,7 +1,11 @@
 <section
   class="h-fit min-h-dvh w-full relative pb-20 flex flex-col items-center justify-center overflow-hidden gap-10 text-center"
 >
-  <img src="/logos/6.1.webp" alt="logo empresa" class="size-16 object-cover select-none z-0 mt-20" />
+  <img
+    src="/logos/6.1.webp"
+    alt="logo empresa"
+    class="size-16 object-cover select-none z-0 mt-20"
+  />
   <p class="text-2xl font-thin text-custom-brown-900">
     CREEMOS QUE CADA ESPACIO TIENE EL POTENCIAL DE <br />CONVERTIRSE EN UNA EXTENSIÓN AUTÉNTICA DE
     QUIÉNES LO HABITAN
@@ -36,186 +40,70 @@
   </div>
 </section>
 <section
-  class="bg-secondary-700 h-fit min-h-dvh relative flex flex-col lg:flex-row items-center justify-center"
+  class="bg-secondary-700 h-80 relative flex flex-col lg:flex-row items-center justify-center"
 >
-  <img
-    src="/backgrounds/6.webp"
-    alt="imagen de diseño 360"
-    class="absolute top-1/2 -translate-y-1/2 brightness-0 size-full object-cover opacity-20"
-  />
-  <aside
-    class="w-full lg:w-1/2 h-fit flex flex-col justify-center items-center gap-5 text-left text-primary-500 text-xl uppercase px-5"
-  >
-    <h2 class="text-6xl md:text-8xl">
-      NUESTRO <br />
-      EQUIPO
-    </h2>
-  </aside>
-  <div
-    class="mt-20 lg:mt-0 w-full lg:w-1/2 h-fit flex flex-col items-center justify-center text-primary-500 text-3xl px-10 leading-6 gap-5 word-break"
-  >
-    <div
-      class="border-2 border-primary-500 flex items-center justify-between w-full p-10 rounded-sm cursor-pointer z-60"
-      (click)="setCardToShow(1, $event)"
-    >
-      <h2>
-        MARIA ALEJANDRA <br />
-        RODRIGUEZ MOLINARES
-      </h2>
-      <img src="/icons/down.svg" alt="Down arrow" class="size-10 brightness-0 invert rotate-90" />
-    </div>
-    <div
-      class="border-2 border-primary-500 flex items-center justify-between w-full p-10 rounded-sm cursor-pointer z-60"
-      (click)="setCardToShow(2, $event)"
-    >
-      <h2>
-        NELSON F. <br />
-        ANNICHIARICO M.
-      </h2>
-      <img src="/icons/down.svg" alt="Down arrow" class="size-10 brightness-0 invert rotate-90" />
-    </div>
-    <div
-      class="border-2 border-primary-500 flex items-center justify-between w-full p-10 rounded-sm cursor-pointer z-60"
-      (click)="setCardToShow(3, $event)"
-    >
-      <h2>
-        ILVA MONARES <br />
-        AMAYA
-      </h2>
-      <img src="/icons/down.svg" alt="Down arrow" class="size-10 brightness-0 invert rotate-90" />
-    </div>
-  </div>
+  <h2 class="text-4xl md:text-6xl text-primary-500">NUESTRO EQUIPO</h2>
 </section>
 
 <div
-  class="fixed inset-0 z-60"
-  [ngClass]="{
-    hidden: cardToShow() === 0,
-    block: cardToShow() !== 0
-  }"
+  class="relative group md:h-[1000px] h-screen w-screen duration-300 flex flex-col items-center justify-center overflow-hidden"
 >
-  <div
-    class="h-screen w-screen backdrop-blur-sm duration-300 flex items-center justify-center"
-    (click)="setCardToShow(0, $event)"
-  >
+  @for (member of teamMembers; track $index) {
     <div
-      class="bg-primary-500 w-full h-full flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden text-custom-brown-900 uppercase cursor-pointer px-5"
-      (click)="$event.stopPropagation()"
-      [ngClass]="{
-        hidden: cardToShow() !== 1,
-        block: cardToShow() === 1
-      }"
+      class="absolute inset-0 transition-opacity duration-1000 flex flex-col-reverse md:flex-row items-center justify-center gap-12 text-custom-brown-900 uppercase px-10 md:px-60"
+      [class.opacity-100]="currentIndex() === $index"
+      [class.opacity-0]="currentIndex() !== $index"
+      [class.pointer-events-none]="currentIndex() !== $index"
+      [class.bg-primary-500]="currentIndex() === $index"
     >
-      <span class="absolute top-5 right-5 cursor-pointer text-4xl z-70" (click)="closeModal()">
-        ×
-      </span>
-      <aside
-        class="w-full md:w-2/3 h-full flex flex-col justify-center gap-10 lg:px-20 p-4 pt-0 overflow-auto"
-      >
-        <h2 class="text-4xl uppercase text-secondary-700">
-          MARÍA ALEJANDRA <br />RODRIGUEZ MOLINARES
-        </h2>
+      <aside class="w-full md:w-2/3 h-full flex flex-col justify-center gap-10 lg:pr-20 p-4 pt-0">
+        <h2 class="text-4xl uppercase text-secondary-700" [innerHTML]="member.name"></h2>
         <ul class="flex flex-wrap gap-10 list-disc">
-          <li class="text-lg max-w-[1200px]">arquitecta</li>
-          <li class="text-lg max-w-[1200px]">especialista en diseño de interiores</li>
-          <li class="text-lg max-w-[1200px]">fundadora y directora creativa</li>
+          @for (role of member.roles; track role) {
+            <li class="text-lg max-w-[1200px] valued-bold text-primary-800">{{ role }}</li>
+          }
         </ul>
 
-        <p class="text-xl font-semibold max-w-[1200px]">
-          Apasionada por crear espacios que conecten con la esencia de quienes los habitan, combina
-          su formación como arquitecta y su especialización en diseño de interiores con una
-          sensibilidad especial por los detalles, la atmósfera y la funcionalidad. Disfruta diseñar
-          mobiliario que aporte equilibrio y cuente historias dentro de cada proyecto, y lidera la
-          dirección creativa para garantizar coherencia estética, calidez y un sello único en cada
-          propuesta.
+        <p class="text-xl font-semibold max-w-[1200px] valued-bold">
+          {{ member.description }}
         </p>
       </aside>
 
       <div class="w-full md:w-1/3 h-40 md:h-full">
         <img
-          src="/backgrounds/photo1.webp"
-          alt="Foto MARIA ALEJANDRA"
-          class="size-full object-cover border-r-20 border-primary-500"
+          [src]="member.image"
+          [alt]="'Foto ' + member.name"
+          class="size-full object-contain border-r-20 border-primary-500"
         />
       </div>
     </div>
-    <div
-      class="bg-primary-500 max-w-[1200px] max-h-[900px] w-[90%] h-[90%] flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden text-custom-brown-900 uppercase cursor-pointer px-5"
-      (click)="$event.stopPropagation()"
-      [ngClass]="{
-        hidden: cardToShow() !== 2,
-        block: cardToShow() === 2
-      }"
-    >
-      <span class="absolute top-5 right-5 cursor-pointer text-4xl z-70" (click)="closeModal()">
-        ×
-      </span>
-      <aside
-        class="w-full md:w-2/3 h-full flex flex-col justify-around lg:px-20 p-4 pt-0 overflow-auto"
-      >
-        <h2 class="text-4xl uppercase text-secondary-700">NELSON F. <br />ANNICHIARICO M.</h2>
-        <div class="flex flex-col gap-2">
-          <p class="text-lg max-w-[700px]">arquitecto</p>
-          <p class="text-lg max-w-[700px]">fundador y</p>
-          <p class="text-lg max-w-[700px]">director de producción</p>
-        </div>
+  }
 
-        <p class="text-xl font-semibold max-w-[700px]">
-          Apasionada por crear espacios que conecten con la esencia de quienes los habitan, combina
-          su formación como arquitecta y su especialización en diseño de interiores con una
-          sensibilidad especial por los detalles, la atmósfera y la funcionalidad. Disfruta diseñar
-          mobiliario que aporte equilibrio y cuente historias dentro de cada proyecto, y lidera la
-          dirección creativa para garantizar coherencia estética, calidez y un sello único en cada
-          propuesta.
-        </p>
-      </aside>
+  <!-- Navigation Buttons -->
+  <button
+    (click)="prev()"
+    class="absolute left-10 z-10 p-4 rounded-full bg-white/20 hover:bg-white/40 transition-colors"
+    aria-label="Previous member"
+  >
+    <img src="/icons/down.svg" alt="Prev" class="size-8 rotate-90" />
+  </button>
+  <button
+    (click)="next()"
+    class="absolute right-10 z-10 p-4 rounded-full bg-white/20 hover:bg-white/40 transition-colors"
+    aria-label="Next member"
+  >
+    <img src="/icons/down.svg" alt="Next" class="size-8 -rotate-90" />
+  </button>
 
-      <div class="w-full md:w-1/3 h-40 md:h-full">
-        <img
-          src="/backgrounds/photo1.webp"
-          alt="Foto MARIA ALEJANDRA"
-          class="size-full object-cover border-r-20 border-primary-500"
-        />
-      </div>
-    </div>
-    <div
-      class="bg-primary-500 max-w-[1200px] max-h-[900px] w-[90%] h-[90%] flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden text-custom-brown-900 uppercase cursor-pointer px-5"
-      (click)="$event.stopPropagation()"
-      [ngClass]="{
-        hidden: cardToShow() !== 3,
-        block: cardToShow() === 3
-      }"
-    >
-      <span class="absolute top-5 right-5 cursor-pointer text-4xl z-70" (click)="closeModal()">
-        ×
-      </span>
-      <aside
-        class="w-full md:w-2/3 h-full flex flex-col justify-around lg:px-20 p-4 pt-0 overflow-auto"
-      >
-        <h2 class="text-4xl uppercase text-secondary-700">ILVA MONARES AMAYA</h2>
-        <div class="flex flex-col gap-2">
-          <p class="text-lg max-w-[700px]">arquitecta</p>
-          <p class="text-lg max-w-[700px]">especialista en diseño de interiores</p>
-          <p class="text-lg max-w-[700px]">fundadora y ceo</p>
-        </div>
-
-        <p class="text-xl font-semibold max-w-[700px]">
-          Apasionada por crear espacios que conecten con la esencia de quienes los habitan, combina
-          su formación como arquitecta y su especialización en diseño de interiores con una
-          sensibilidad especial por los detalles, la atmósfera y la funcionalidad. Disfruta diseñar
-          mobiliario que aporte equilibrio y cuente historias dentro de cada proyecto, y lidera la
-          dirección creativa para garantizar coherencia estética, calidez y un sello único en cada
-          propuesta.
-        </p>
-      </aside>
-
-      <div class="w-full md:w-1/3 h-40 md:h-full">
-        <img
-          src="/backgrounds/photo1.webp"
-          alt="Foto MARIA ALEJANDRA"
-          class="size-full object-cover border-r-20 border-primary-500"
-        />
-      </div>
-    </div>
+  <!-- Indicators -->
+  <div class="absolute bottom-10 flex gap-2">
+    @for (member of teamMembers; track $index) {
+      <div
+        (click)="currentIndex.set($index)"
+        class="size-3 rounded-full cursor-pointer transition-colors"
+        [class.bg-secondary-700]="currentIndex() === $index"
+        [class.bg-secondary-700/30]="currentIndex() !== $index"
+      ></div>
+    }
   </div>
 </div>
