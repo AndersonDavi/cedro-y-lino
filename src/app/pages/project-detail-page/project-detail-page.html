@@ -1,0 +1,122 @@
+@if (project()) {
+  <section class="min-h-screen pt-40 pb-20 px-8 flex flex-col items-center">
+    <!-- Hero Carousel -->
+    <div class="relative w-full h-[600px]">
+      <div
+        class="flex h-full transition-transform duration-700 ease-out gap-4"
+        >
+        <!-- [style.transform]="'translateX(-' + currentImageIndex() * 100 + '%)'" -->
+        @for (image of project()!.Images; track $index) {
+          <div class="h-full w-auto cursor-pointer" (click)="openModal($index)">
+            <img
+              [src]="'projects/' + project()!.id + '/' + image"
+              [alt]="project()!.Title"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        }
+      </div>
+
+      <!-- Navigation Arrows -->
+      @if (project()!.Images.length > 1) {
+        <button
+          (click)="prevImage()"
+          class="absolute left-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100"
+        >
+          <img src="/icons/down.svg" alt="Prev" class="size-6 rotate-90" />
+        </button>
+        <button
+          (click)="nextImage()"
+          class="absolute right-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100"
+        >
+          <img src="/icons/down.svg" alt="Next" class="size-6 -rotate-90" />
+        </button>
+      }
+
+      <!-- Indicators -->
+      <!-- <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3">
+        @for (image of project()!.Images; track $index) {
+          <div
+            (click)="currentImageIndex.set($index)"
+            class="size-2 rounded-full cursor-pointer transition-all"
+            [class.bg-white]="currentImageIndex() === $index"
+            [class.bg-white/30]="currentImageIndex() !== $index"
+            [class.w-8]="currentImageIndex() === $index"
+          ></div>
+        }
+      </div> -->
+    </div>
+
+    <!-- Content Section -->
+    <div class="w-full max-w-6xl mt-12 flex flex-col gap-12 h-fit">
+      <h1 class="text-6xl font-bold text-secondary-800 uppercase leading-tight">
+        {{ project()!.Title }}
+      </h1>
+      <p class="text-lg text-custom-brown-900 valued-bold leading-relaxed opacity-90">
+        {{ project()!.Description }}
+      </p>
+      <a
+        routerLink="/contacto"
+        class="w-fit p-5 bg-secondary-700 text-white text-center font-bold rounded-full hover:bg-secondary-800 transition-colors uppercase tracking-widest h-16"
+      >
+        Cotizar Proyecto
+      </a>
+    </div>
+  </section>
+
+  <!-- Modal Carousel -->
+  @if (isModalOpen()) {
+    <div
+      class="fixed inset-0 z-100 bg-black flex items-center justify-center"
+      (click)="closeModal()"
+    >
+      <button
+        (click)="closeModal()"
+        class="absolute top-10 right-10 text-white text-5xl z-50 hover:scale-110 transition-transform"
+      >
+        ×
+      </button>
+
+      <div
+        class="relative w-full h-full flex items-center justify-center"
+        (click)="$event.stopPropagation()"
+      >
+        <div
+          class="flex h-full w-full transition-transform duration-500 ease-in-out"
+          [style.transform]="'translateX(-' + modalImageIndex() * 100 + '%)'"
+        >
+          @for (image of project()!.Images; track $index) {
+            <div class="min-w-full h-full flex items-center justify-center p-4">
+              <img
+                [src]="'projects/' + project()!.id + '/' + image"
+                class="max-w-full max-h-[90vh] object-contain shadow-2xl"
+              />
+            </div>
+          }
+        </div>
+
+        <!-- Modal Arrows -->
+        @if (project()!.Images.length > 1) {
+          <button
+            (click)="prevModalImage()"
+            class="absolute left-10 p-6 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm"
+          >
+            <img src="/icons/down.svg" alt="Prev" class="size-10 rotate-90 invert" />
+          </button>
+          <button
+            (click)="nextModalImage()"
+            class="absolute right-10 p-6 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm"
+          >
+            <img src="/icons/down.svg" alt="Next" class="size-10 -rotate-90 invert" />
+          </button>
+        }
+      </div>
+    </div>
+  }
+} @else {
+  <div
+    class="h-screen flex items-center justify-center text-4xl text-primary-500 font-bold uppercase"
+  >
+    Proyecto no encontrado
+  </div>
+}
