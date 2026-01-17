@@ -15,17 +15,17 @@
   class="h-fit min-h-[600px] w-full relative pb-20 flex flex-col md:flex-row items-center justify-center overflow-hidden gap-10 text-center"
 >
   <aside
-    class="w-full md:w-1/2 h-fit flex flex-col justify-center items-center gap-5 text-left text-custom-brown-900 text-xl uppercase px-5"
+    class="w-full md:w-1/2 h-fit flex flex-col justify-center items-center gap-5 text-left text-custom-brown-900 text-xl uppercase px-5 valued-bold"
   >
-    <p class="max-w-[700px]">
+    <p class="max-w-[700px] valued-bold">
       Diseñamos con intención, técnica y sensibilidad, combinando líneas puras, materiales nobles y
       una visión estética que trasciende tendencias.
     </p>
-    <p class="max-w-[700px]">
+    <p class="max-w-[700px] valued-bold">
       Nuestro enfoque parte de entender profundamente a cada cliente para crear proyectos que no
       solo se ven bien, sino que funcionan, se sienten y perduran.
     </p>
-    <p class="max-w-[700px]">
+    <p class="max-w-[700px] valued-bold">
       Detrás de cada trazo hay un equipo altamente preparado, con una trayectoria sólida y una
       obsesión compartida: entregar espacios que cuenten una historia única, con carácter y armonía
       en cada detalle.
@@ -99,7 +99,7 @@
     (click)="setCardToShow(0, $event)"
   >
     <div
-      class="bg-primary-500 max-w-[1200px] max-h-[900px] w-[90%] h-[90%] flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden text-custom-brown-900 uppercase cursor-pointer px-5"
+      class="bg-primary-500 w-full h-full flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden text-custom-brown-900 uppercase cursor-pointer px-5"
       (click)="$event.stopPropagation()"
       [ngClass]="{
         hidden: cardToShow() !== 1,
@@ -110,18 +110,18 @@
         ×
       </span>
       <aside
-        class="w-full md:w-2/3 h-full flex flex-col justify-around lg:px-20 p-4 pt-0 overflow-auto"
+        class="w-full md:w-2/3 h-full flex flex-col justify-center gap-10 lg:px-20 p-4 pt-0 overflow-auto"
       >
         <h2 class="text-4xl uppercase text-secondary-700">
           MARÍA ALEJANDRA <br />RODRIGUEZ MOLINARES
         </h2>
-        <div class="flex flex-col gap-2">
-          <p class="text-lg max-w-[700px]">arquitecta</p>
-          <p class="text-lg max-w-[700px]">especialista en diseño de interiores</p>
-          <p class="text-lg max-w-[700px]">fundadora y directora creativa</p>
-        </div>
+        <ul class="flex flex-wrap gap-10 list-disc">
+          <li class="text-lg max-w-[1200px]">arquitecta</li>
+          <li class="text-lg max-w-[1200px]">especialista en diseño de interiores</li>
+          <li class="text-lg max-w-[1200px]">fundadora y directora creativa</li>
+        </ul>
 
-        <p class="text-xl font-semibold max-w-[700px]">
+        <p class="text-xl font-semibold max-w-[1200px]">
           Apasionada por crear espacios que conecten con la esencia de quienes los habitan, combina
           su formación como arquitecta y su especialización en diseño de interiores con una
           sensibilidad especial por los detalles, la atmósfera y la funcionalidad. Disfruta diseñar

@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class FooterService {
-  public footerStyleToShow = signal<'full' | 'small'>('full');
+  public footerStyleToShow = signal<'full' | 'small'>('small');
   public setFooterStyleToShow(style: 'full' | 'small') {
     this.footerStyleToShow.set(style);
   }

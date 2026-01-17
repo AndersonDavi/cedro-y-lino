@@ -16,10 +16,8 @@ export class ServicesPage implements OnInit, OnDestroy {
   public navbarService = inject(NavbarService);
 
   public ngOnInit(): void {
-    this.footerService.setFooterStyleToShow('small');
   }
   public ngOnDestroy(): void {
-    this.footerService.setFooterStyleToShow('full');
     this.navbarService.setNavbarStyleToShow('transparent');
   }
   public setCardToShow(card: number, event?: Event) {

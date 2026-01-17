@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @theme {
   --font-naftegfo: 'Naftegfo', sans-serif;
+  --font-valued: 'Valued', sans-serif;
 
   --color-primary-50: #ffffff;
   --color-primary-100: #fefcf8;
@@ -74,7 +75,18 @@
   -webkit-font-smoothing: antialiased;
 }
 
+@font-face {
+  font-family: 'Valued';
+  src: url('/fonts/Valued-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   font-family: var(--font-naftegfo) !important;
   letter-spacing: 2px;
+}
+.valued-bold {
+  font-family: var(--font-valued) !important;
 }
