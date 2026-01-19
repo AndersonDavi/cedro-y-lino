@@ -24,16 +24,16 @@
 } @else if (footerStyle() === 'full') {
 <footer class="flex flex-col text-white bg-secondary-700">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 w-full p-10 h-fit gap-6">
-    <div class="h-full flex items-center justify-center">
+    <div class="h-full flex items-center justify-start">
       <img
         src="logos/4.2.webp"
         i18n-alt
         alt="logo empresa"
-        class="size-46 object-contain brightness-75"
+        class="size-24 object-contain brightness-75"
       />
     </div>
     <div class="flex items-center">
-      <ul class="h-fit flex flex-col w-fit mx-auto justify-center gap-2 uppercase text-primary-500">
+      <ul class="h-fit flex flex-col w-fit mx-auto justify-center gap-2 uppercase text-primary-500 text-xs">
         <li i18n routerLinkActive="font-bold" routerLink="/inicio">Inicio</li>
         <li i18n routerLinkActive="font-bold" routerLink="/proyectos">Proyectos</li>
         <li i18n routerLinkActive="font-bold" routerLink="/servicios">Servicios</li>
@@ -42,23 +42,23 @@
       </ul>
     </div>
     <div class="flex gap-4 items-center justify-center flex-wrap">
-      <img src="/icons/be.webp" alt="linkedin" class="size-10 object-contain" />
-      <img src="/icons/instagram.svg" alt="instagram" class="size-10 object-contain" />
-      <img src="/icons/linkedin.svg" alt="linkedin" class="size-10 object-contain" />
-      <img src="/icons/mail.svg" alt="mail" class="size-10 object-contain" />
-      <img src="/icons/whatsapp.svg" alt="whatsapp" class="size-10 object-contain" />
+      <img src="/icons/be.webp" alt="linkedin" class="size-8 object-contain" />
+      <img src="/icons/instagram.svg" alt="instagram" class="size-8 object-contain" />
+      <img src="/icons/linkedin.svg" alt="linkedin" class="size-8 object-contain" />
+      <img src="/icons/mail.svg" alt="mail" class="size-8 object-contain" />
+      <img src="/icons/whatsapp.svg" alt="whatsapp" class="size-8 object-contain" />
     </div>
-    <div class="size-full flex items-center justify-center">
+    <div class="size-full flex items-center justify-end">
       <img
         src="logos/6.5.webp"
         i18n-alt
         alt="logo empresa"
-        class="size-20 object-contain brightness-75"
+        class="size-12 object-contain brightness-75"
       />
     </div>
   </div>
-  <div class="col-span-4 bg-secondary-800 text-center p-2 w-full">
-    <p>© 2025 Credo & Lino. All rights reserved.</p>
+  <div class="col-span-4 bg-secondary-800 text-center p-2 w-full valued-bold">
+    <p class="text-xs">© 2025 Credo & Lino. All rights reserved.</p>
   </div>
 </footer>
 }

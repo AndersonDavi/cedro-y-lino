@@ -1,20 +1,47 @@
-<section class="h-dvh mt-40">
+<section class="min-h-dvh h-fit mt-40">
   <div class="w-full flex max-w-[80%] mx-auto">
-    <div class="w-1/2 md:w-full flex justify-center items-center">
-      <h2 class="text-secondary-800 text-5xl font-bold">Proyectos</h2>
-    </div>
-    <div class="w-1/2 md:w-full flex justify-center items-center">
-      <p>
-        Descubre nuestros proyectos destacados, donde la creatividad y la funcionalidad se fusionan
-        para crear espacios únicos y acogedores.
-      </p>
-    </div>
+    <p
+      class="text-custom-brown-900 text-xs max-w-[1000px] mx-auto uppercase valued-bold text-center"
+    >
+      Descubre nuestros proyectos destacados, donde la creatividad y la funcionalidad se fusionan
+      para crear espacios únicos y acogedores.
+    </p>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-5 max-w-[80%] mx-auto mt-20">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-5 max-w-[80%] mx-auto mt-20 h-fit">
     @for (project of projects(); track project.id) {
       <div
         [routerLink]="['/proyectos', project.id]"
-        class="aspect-9/14 bg-white shadow-xl group overflow-hidden cursor-pointer relative rounded-2xl"
+        class="aspect-9/14 bg-white shadow-xl group overflow-hidden cursor-pointer relative"
+      >
+        <img
+          [src]="'projects/' + project.id + '/' + getFirstImage(project)"
+          [alt]="project.Title"
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+        />
+        <!-- Hover Overlay -->
+        <div
+          class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"
+        >
+          <h3
+            class="text-white text-2xl font-black uppercase tracking-tighter transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
+          >
+            {{ project.Title }}
+          </h3>
+          <div
+            class="w-12 h-1 bg-primary-500 mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100"
+          ></div>
+          <p
+            class="text-white/70 text-sm mt-6 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200"
+          >
+            Ver Proyecto
+          </p>
+        </div>
+      </div>
+    }
+    @for (project of projects(); track project.id) {
+      <div
+        [routerLink]="['/proyectos', project.id]"
+        class="aspect-9/14 bg-white shadow-xl group overflow-hidden cursor-pointer relative"
       >
         <img
           [src]="'projects/' + project.id + '/' + getFirstImage(project)"

@@ -16,20 +16,20 @@
 </section>
 
 <section
-  class="h-fit min-h-[600px] w-full relative pb-20 flex flex-col md:flex-row items-center justify-center overflow-hidden gap-10 text-center"
+  class="h-fit min-h-[600px] w-full relative pb-20 flex flex-col md:flex-row items-center justify-center overflow-hidden gap-10 text-center px-10"
 >
   <aside
-    class="w-full md:w-1/2 h-fit flex flex-col justify-center items-center gap-5 text-left text-custom-brown-900 text-xl uppercase px-5 valued-bold"
+    class="w-full md:w-1/2 h-fit flex flex-col justify-center items-start gap-5 text-left text-custom-brown-900 text-xl uppercase"
   >
-    <p class="max-w-[700px] valued-bold">
+    <p class="max-w-[700px] valued-bold text-xs">
       Diseñamos con intención, técnica y sensibilidad, combinando líneas puras, materiales nobles y
       una visión estética que trasciende tendencias.
     </p>
-    <p class="max-w-[700px] valued-bold">
+    <p class="max-w-[700px] valued-bold text-xs">
       Nuestro enfoque parte de entender profundamente a cada cliente para crear proyectos que no
       solo se ven bien, sino que funcionan, se sienten y perduran.
     </p>
-    <p class="max-w-[700px] valued-bold">
+    <p class="max-w-[700px] valued-bold text-xs">
       Detrás de cada trazo hay un equipo altamente preparado, con una trayectoria sólida y una
       obsesión compartida: entregar espacios que cuenten una historia única, con carácter y armonía
       en cada detalle.
@@ -50,51 +50,59 @@
 >
   @for (member of teamMembers; track $index) {
     <div
-      class="absolute inset-0 transition-opacity duration-1000 flex flex-col-reverse md:flex-row items-center justify-center gap-12 text-custom-brown-900 uppercase px-10 md:px-60"
+      class="absolute inset-0 transition-opacity duration-1000 flex flex-col-reverse lg:flex-row items-center justify-center gap-8 text-custom-brown-900 uppercase px-10 lg:px-28"
       [class.opacity-100]="currentIndex() === $index"
       [class.opacity-0]="currentIndex() !== $index"
       [class.pointer-events-none]="currentIndex() !== $index"
       [class.bg-primary-500]="currentIndex() === $index"
     >
-      <aside class="w-full md:w-2/3 h-full flex flex-col justify-center gap-10 lg:pr-20 p-4 pt-0">
-        <h2 class="text-4xl uppercase text-secondary-700" [innerHTML]="member.name"></h2>
-        <ul class="flex flex-wrap gap-10 list-disc">
+      <aside
+        class="w-full lg:w-2/3 h-fit min-h-full flex flex-col lg:justify-center justify-start gap-8 p-4 pt-0"
+      >
+        <h2 class="text-2xl uppercase text-secondary-700" [innerHTML]="member.name"></h2>
+        <ul class="flex flex-wrap items-center">
           @for (role of member.roles; track role) {
-            <li class="text-lg max-w-[1200px] valued-bold text-primary-800">{{ role }}</li>
+            <li class="max-w-[1200px] valued-bold text-primary-800">{{ role }}</li>
+            @if ($index < member.roles.length - 1) {
+              <li class="h-2 w-2 rounded-full bg-secondary-700 mx-5"></li>
+            }
           }
         </ul>
 
-        <p class="text-xl font-semibold max-w-[1200px] valued-bold">
+        <p class="font-semibold max-w-[1200px] valued-bold">
           {{ member.description }}
         </p>
       </aside>
 
-      <div class="w-full md:w-1/3 h-40 md:h-full">
+      <div class="lg:w-1/3 lg:h-full">
         <img
           [src]="member.image"
           [alt]="'Foto ' + member.name"
-          class="size-full object-contain border-r-20 border-primary-500"
+          class="w-full h-full object-cover object-center"
         />
       </div>
     </div>
   }
 
   <!-- Navigation Buttons -->
-  <button
-    (click)="prev()"
-    class="absolute left-10 z-10 p-4 rounded-full bg-white/20 hover:bg-white/40 transition-colors"
-    aria-label="Previous member"
-  >
-    <img src="/icons/down.svg" alt="Prev" class="size-8 rotate-90" />
-  </button>
-  <button
-    (click)="next()"
-    class="absolute right-10 z-10 p-4 rounded-full bg-white/20 hover:bg-white/40 transition-colors"
-    aria-label="Next member"
-  >
-    <img src="/icons/down.svg" alt="Next" class="size-8 -rotate-90" />
-  </button>
-
+  @if (currentIndex() > 0) {
+    <button
+      (click)="prev()"
+      class="absolute left-10 z-10 p-4 rounded-full bg-white/20 hover:bg-white/40 transition-colors"
+      aria-label="Previous member"
+    >
+      <img src="/icons/down.svg" alt="Prev" class="size-8 rotate-90" />
+    </button>
+  }
+  @if (currentIndex() < teamMembers.length - 1) {
+    <button
+      (click)="next()"
+      class="absolute right-10 z-10 p-4 rounded-full bg-white/20 hover:bg-white/40 transition-colors"
+      aria-label="Next member"
+    >
+      <img src="/icons/down.svg" alt="Next" class="size-8 -rotate-90" />
+    </button>
+  }
   <!-- Indicators -->
   <div class="absolute bottom-10 flex gap-2">
     @for (member of teamMembers; track $index) {
