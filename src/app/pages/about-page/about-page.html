@@ -56,29 +56,27 @@
       [class.pointer-events-none]="currentIndex() !== $index"
       [class.bg-primary-500]="currentIndex() === $index"
     >
-      <aside
-        class="w-full lg:w-2/3 h-fit min-h-full flex flex-col lg:justify-center justify-start gap-8 p-4 pt-0"
+      <aside class="w-full lg:w-1/2 h-fit min-h-full flex flex-col lg:justify-center justify-start gap-4 p-4 pt-0"
       >
-        <h2 class="text-2xl uppercase text-secondary-700" [innerHTML]="member.name"></h2>
+        <h2 class="text-[2.2rem] uppercase text-secondary-700" [innerHTML]="member.name"></h2>
         <ul class="flex flex-wrap items-center">
           @for (role of member.roles; track role) {
-            <li class="max-w-[1200px] valued-bold text-primary-800">{{ role }}</li>
+            <li class="max-w-[1200px] valued-bold text-primary-800 text-[12px]">{{ role }}</li>
             @if ($index < member.roles.length - 1) {
               <li class="h-2 w-2 rounded-full bg-secondary-700 mx-5"></li>
             }
           }
         </ul>
 
-        <p class="font-semibold max-w-[1200px] valued-bold">
+        <p class="font-semibold max-w-[1200px] valued-bold text-[14px]">
           {{ member.description }}
         </p>
       </aside>
-
-      <div class="lg:w-1/3 lg:h-full flex items-center justify-center">
+      <div class="lg:w-1/2 lg:h-full flex items-center justify-center">
         <img
           [src]="member.image"
           [alt]="'Foto ' + member.name"
-          class="w-full aspect-video object-cover object-center"
+          class="h-[80%] w-[90%] object-cover object-center"
         />
       </div>
     </div>
